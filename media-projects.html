@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Media Projects | Samuel De Santiago</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+    <nav aria-label="Primary">
+        <div class="nav-brand">SD</div>
+        <div class="nav-links">
+            <a href="index.html">About</a>
+            <a href="index.html#experience">Experience</a>
+            <a href="technology-projects.html">Technology Projects</a>
+            <a href="media-projects.html">Media Projects</a>
+            <a href="index.html#contact">Contact</a>
+        </div>
+    </nav>
+
+    <main class="project-page">
+        <div class="fade-up">
+            <p class="eyebrow">MEDIA PROJECTS</p>
+            <h1>Media Projects</h1>
+
+            <p class="hero-text">
+                This section highlights creative and visual projects related to storytelling,
+                design, editing, and interactive media. These projects reflect my interest in
+                combining creativity with structured thinking and polished visual presentation.
+            </p>
+        </div>
+
+        <div class="project-info-box project-section fade-up">
+            <h2>Charming Labyrinth</h2>
+
+            <div class="project-gallery">
+                <img src="media/charming_labyrinth_1.jpg" alt="Charming Labyrinth overhead screenshot" class="lightbox-trigger">
+                <img src="media/charming_labyrinth_2.jpg" alt="Charming Labyrinth gameplay screenshot" class="lightbox-trigger">
+            </div>
+
+            <p>
+                <em>Charming Labyrinth</em> is a level design project created for the game
+                <em>Terrorarium</em>. The project focuses on designing a maze-like environment
+                that guides the player through exploration, pacing, and challenge while maintaining
+                a strong visual identity.
+            </p>
+
+            <p>
+                This project reflects my ability to plan structured environments, think about user
+                experience, and refine a design through iteration and testing.
+            </p>
+
+            <p>
+                <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2040748404"
+                   target="_blank" rel="noopener" class="text-link">
+                   View on Steam
+                </a>
+            </p>
+
+            <h2>Skills Demonstrated</h2>
+            <ul>
+                <li>Level design fundamentals</li>
+                <li>Iterative design and testing</li>
+                <li>Visual composition and layout planning</li>
+                <li>Creative problem solving</li>
+            </ul>
+        </div>
+
+        <div class="project-info-box project-section fade-up">
+            <h2>Punk's Not Dead</h2>
+
+            <img src="media/punks_not_dead_1.png" alt="Punk's Not Dead artwork" class="project-hero-image lightbox-trigger">
+
+            <p>
+                <em>Punk's Not Dead</em> is a digital visual project created for a contest by the band
+                La Vida Boheme for their music video <em>Control</em>. The project focused on
+                visual composition, editing, and storytelling.
+            </p>
+
+            <p>
+                It reflects my interest in combining creative direction with structured design
+                and visual storytelling.
+            </p>
+
+            <p>
+                <a href="https://youtu.be/0MxS3ah86WM?si=hkQOv_rkXBAuxhBD&t=193"
+                   target="_blank" rel="noopener" class="text-link">
+                   Watch the Video
+                </a>
+            </p>
+
+            <h2>Skills Demonstrated</h2>
+            <ul>
+                <li>Video editing and pacing</li>
+                <li>Visual storytelling</li>
+                <li>Creative direction</li>
+                <li>Attention to detail</li>
+            </ul>
+        </div>
+
+        <div class="project-info-box project-section fade-up">
+            <h2>Future Media Projects</h2>
+            <p>
+                This section will continue to grow with additional creative projects,
+                including video editing, digital design, and other visual work.
+            </p>
+        </div>
+    </main>
+
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" src="" alt="Expanded view">
+    </div>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const items = document.querySelectorAll(".fade-up");
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("in-view");
+                }
+            });
+        }, {
+            threshold: 0.08
+        });
+
+        items.forEach((item) => observer.observe(item));
+
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById("lightbox-img");
+        const closeBtn = document.querySelector(".lightbox-close");
+        const clickableImages = document.querySelectorAll(".lightbox-trigger");
+
+        clickableImages.forEach((img) => {
+            img.addEventListener("click", function () {
+                lightboxImg.src = this.src;
+                lightboxImg.alt = this.alt;
+                lightbox.classList.add("open");
+            });
+        });
+
+        closeBtn.addEventListener("click", function () {
+            lightbox.classList.remove("open");
+        });
+
+        lightbox.addEventListener("click", function (e) {
+            if (e.target === lightbox) {
+                lightbox.classList.remove("open");
+            }
+        });
+
+        document.addEventListener("keydown", function (e) {
+            if (e.key === "Escape") {
+                lightbox.classList.remove("open");
+            }
+        });
+    });
+    </script>
+
+</body>
+</html>
